@@ -1,8 +1,13 @@
+import About from './components/About';
+import Home from './components/Home';
+import Nav from './components/Nav';
+
 const App = () => {
 	return (
 		<div>
-			<h1>Yoooooooooo</h1>
-			<h2>jai ho sheryians ki</h2>
+			<Home />
+			<About />
+			<Nav />
 		</div>
 	);
 };
