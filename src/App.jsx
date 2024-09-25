@@ -1,3 +1,20 @@
+import { useState } from 'react';
+
+const App = () => {
+	const submitHandler = (e) => {
+		e.preventDefault();
+		console.log(e.target.username.value);
+	};
+	return (
+		<div className="rounded mx-auto w-[80%] mt-10 p-5 bg-zinc-200">
+			<form onSubmit={submitHandler}>
+				<input placeholder="Username" name="username" type="text" />
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	);
+};
+
 // import About from './components/About';
 // import Home from './components/Home';
 // import Nav from './components/Nav';
@@ -57,25 +74,38 @@
 // );
 // };
 
-const getInfo = () => {
-	console.log('Clicked');
-};
-const takeInfo = (info) => {
-	console.log(info);
-};
-const App = () => {
-	return (
-		<div>
-			<button onClick={getInfo} className="bg-red-400 px-4 py-3 ">
-				Click me!
-			</button>
-			<button
-				onClick={() => takeInfo('take vala clicked')}
-				className="bg-red-400 px-4 py-3 mx-4 ">
-				Take vala clicke me
-			</button>
-		</div>
-	);
-};
+// const getInfo = () => {
+// 	console.log('Clicked');
+// };
+// const takeInfo = (info) => {
+// 	console.log(info);
+// };
+// const App = () => {
+// 	return (
+// 		<div>
+// 			<button onClick={getInfo} className="bg-red-400 px-4 py-3 ">
+// 				Click me!
+// 			</button>
+// 			<button
+// 				onClick={() => takeInfo('take vala clicked')}
+// 				className="bg-red-400 px-4 py-3 mx-4 ">
+// 				Take vala click me
+// 			</button>
+// 		</div>
+// 	);
+// };
+
+// const App = () => {
+// 	const [time, settime] = useState(new Date().toLocaleTimeString());
+// 	setInterval(() => {
+// 		settime(new Date().toLocaleTimeString());
+// 	}, 1000);
+
+// 	return (
+// 		<div>
+// 			<h1 className="text-center mt-10 text-8xl">{time}</h1>
+// 		</div>
+// 	);
+// };
 
 export default App;
