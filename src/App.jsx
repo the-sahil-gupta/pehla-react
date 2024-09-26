@@ -1,4 +1,32 @@
 import { useState } from 'react';
+const App = () => {
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const { username, firstname, lastname, contact, email } = e.target;
+		const user = {
+			username: username.value,
+			firstname: firstname.value,
+			lastname: lastname.value,
+			contact: contact.value,
+			email: email.value,
+		};
+		console.log(user);
+	};
+	return (
+		<div className="w-[40%] mx-auto mt-10 p-6 bg-zinc-300">
+			<form onSubmit={handleSubmit} className="flex flex-col gap-4">
+				<input type="text" name="firstname" placeholder="First Name" />
+				<input type="text" name="lastname" placeholder="Last Name" />
+				<input type="text" name="username" placeholder="Username" />
+				<input type="text" name="email" placeholder="Email" />
+				<input type="text" name="contact" placeholder="Contact" />
+				<button className="rounded bg-zinc-200 w-fit px-2 py-1">
+					Submit
+				</button>
+			</form>
+		</div>
+	);
+};
 
 // import About from './components/About';
 // import Home from './components/Home';
