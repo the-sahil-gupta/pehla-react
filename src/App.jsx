@@ -1,20 +1,5 @@
 import { useState } from 'react';
 
-const App = () => {
-	const submitHandler = (e) => {
-		e.preventDefault();
-		console.log(e.target.username.value);
-	};
-	return (
-		<div className="rounded mx-auto w-[80%] mt-10 p-5 bg-zinc-200">
-			<form onSubmit={submitHandler}>
-				<input placeholder="Username" name="username" type="text" />
-				<button type="submit">Submit</button>
-			</form>
-		</div>
-	);
-};
-
 // import About from './components/About';
 // import Home from './components/Home';
 // import Nav from './components/Nav';
@@ -96,6 +81,47 @@ const App = () => {
 // };
 
 // const App = () => {
+// 	let message = 'Hello World';
+// 	const [msg, setmsg] = useState(message);
+// 	const changeMessage = () => {
+// 		setmsg((prevMsg) =>
+// 			prevMsg === 'Hello World' ? 'Helloo React' : 'Hello World'
+// 		);
+// 	};
+
+// 	return (
+// 		<div>
+// 			<h1>
+// 				The message is changing, on clicking this button, try it...
+// 				<br />
+// 				<button
+// 					onClick={changeMessage}
+// 					className="px-3 py-1 text-zinc-900 rounded bg-zinc-300">
+// 					Click me
+// 				</button>
+// 				<br />
+// 				{msg}
+// 			</h1>
+// 		</div>
+// 	);
+// };
+
+// const App = () => {
+// 	const submitHandler = (e) => {
+// 		e.preventDefault();
+// 		console.log(e.target.username.value);
+// 	};
+// 	return (
+// 		<div className="rounded mx-auto w-[80%] mt-10 p-5 bg-zinc-200">
+// 			<form onSubmit={submitHandler}>
+// 				<input placeholder="Username" name="username" type="text" />
+// 				<button type="submit">Submit</button>
+// 			</form>
+// 		</div>
+// 	);
+// };
+
+// const App = () => {
 // 	const [time, settime] = useState(new Date().toLocaleTimeString());
 // 	setInterval(() => {
 // 		settime(new Date().toLocaleTimeString());
@@ -104,6 +130,116 @@ const App = () => {
 // 	return (
 // 		<div>
 // 			<h1 className="text-center mt-10 text-8xl">{time}</h1>
+// 		</div>
+// 	);
+// };
+
+// CREATE A FORM WHICH TAKES FIRSTNAME, LASTNAME, USERNAME, EMAIL, CONTACT AND ON SUBMITTING THE FOR IT SHOULD CONSOLE THE VALUES IN OBJECT
+// const App = () => {
+// 	const [formData, setFormData] = useState({
+// 		firstName: '',
+// 		lastName: '',
+// 		username: '',
+// 		email: '',
+// 		contact: '',
+// 	});
+
+// 	const handleChange = (e) => {
+// 		const { name, value } = e.target;
+// 		setFormData((prevData) => ({
+// 			...prevData,
+// 			[name]: value,
+// 		}));
+// 	};
+
+// 	const handleSubmit = (e) => {
+// 		e.preventDefault();
+// 		console.log('Form submitted:', formData);
+// 		// The formData object already contains all the form values
+// 	};
+
+// 	return (
+// 		<div className="w-[40%] mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
+// 			<h2 className="text-2xl font-bold mb-5">
+// 				Fill this form to show in console as Object
+// 			</h2>
+// 			<form onSubmit={handleSubmit}>
+// 				<div className="mb-4">
+// 					<label htmlFor="firstName" className="block mb-2">
+// 						First Name
+// 					</label>
+// 					<input
+// 						type="text"
+// 						id="firstName"
+// 						name="firstName"
+// 						value={formData.firstName}
+// 						onChange={handleChange}
+// 						className="w-full px-3 py-2 border rounded-lg"
+// 						required
+// 					/>
+// 				</div>
+// 				<div className="mb-4">
+// 					<label htmlFor="lastName" className="block mb-2">
+// 						Last Name
+// 					</label>
+// 					<input
+// 						type="text"
+// 						id="lastName"
+// 						name="lastName"
+// 						value={formData.lastName}
+// 						onChange={handleChange}
+// 						className="w-full px-3 py-2 border rounded-lg"
+// 						required
+// 					/>
+// 				</div>
+// 				<div className="mb-4">
+// 					<label htmlFor="username" className="block mb-2">
+// 						Username
+// 					</label>
+// 					<input
+// 						type="text"
+// 						id="username"
+// 						name="username"
+// 						value={formData.username}
+// 						onChange={handleChange}
+// 						className="w-full px-3 py-2 border rounded-lg"
+// 						required
+// 					/>
+// 				</div>
+// 				<div className="mb-4">
+// 					<label htmlFor="email" className="block mb-2">
+// 						Email
+// 					</label>
+// 					<input
+// 						type="email"
+// 						id="email"
+// 						name="email"
+// 						value={formData.email}
+// 						onChange={handleChange}
+// 						className="w-full px-3 py-2 border rounded-lg"
+// 						required
+// 					/>
+// 				</div>
+// 				<div className="mb-4">
+// 					<label htmlFor="contact" className="block mb-2">
+// 						Contact
+// 					</label>
+// 					<input
+// 						type="tel"
+// 						id="contact"
+// 						name="contact"
+// 						value={formData.contact}
+// 						onChange={handleChange}
+// 						className="w-full px-3 py-2 border rounded-lg"
+// 						required
+// 					/>
+// 				</div>
+// 				<button
+// 					type="submit"
+// 					className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
+// 					Submit
+// 				</button>
+// 			</form>
 // 		</div>
 // 	);
 // };
