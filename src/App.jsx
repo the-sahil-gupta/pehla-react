@@ -1,26 +1,62 @@
 import { useState } from 'react';
+
 const App = () => {
-	const handleSubmit = (e) => {
+	const [username, setusername] = useState('');
+	const [gender, setgender] = useState('');
+	const [error, seterror] = useState(false);
+
+	const submitHandler = (e) => {
 		e.preventDefault();
-		const { username, firstname, lastname, contact, email } = e.target;
-		const user = {
-			username: username.value,
-			firstname: firstname.value,
-			lastname: lastname.value,
-			contact: contact.value,
-			email: email.value,
-		};
-		console.log(user);
+		console.log(username);
+		console.log(gender);
 	};
 	return (
-		<div className="w-[40%] mx-auto mt-10 p-6 bg-zinc-300">
-			<form onSubmit={handleSubmit} className="flex flex-col gap-4">
-				<input type="text" name="firstname" placeholder="First Name" />
-				<input type="text" name="lastname" placeholder="Last Name" />
-				<input type="text" name="username" placeholder="Username" />
-				<input type="text" name="email" placeholder="Email" />
-				<input type="text" name="contact" placeholder="Contact" />
-				<button className="rounded bg-zinc-200 w-fit px-2 py-1">
+		<div className="w-[80%] mt-10 mx-auto bg-zinc-300">
+			<form
+				onSubmit={submitHandler}
+				className="m-3 p-4 flex flex-col content-center gap-4 items-start">
+				<input
+					onChange={(e) => setusername(e.target.value)}
+					onInput={(e) =>
+						e.target.value.length < 5
+							? seterror(true)
+							: seterror(false)
+					}
+					value={username}
+					type="text"
+					name="username"
+					placeholder="Username"
+				/>
+				{error && (
+					<p className="text-red-500">
+						Username must be 5 characters long
+					</p>
+				)}
+				<input
+					type="radio"
+					name="gender"
+					defaultValue="male"
+					checked={gender === 'male' ? true : false}
+					onChange={(e) => setgender(e.target.value)}
+				/>{' '}
+				Male
+				<input
+					type="radio"
+					name="gender"
+					defaultValue="female"
+					checked={gender === 'female' ? true : false}
+					onChange={(e) => setgender(e.target.value)}
+				/>{' '}
+				Female
+				<input
+					type="radio"
+					name="gender"
+					defaultValue="others"
+					checked={gender === 'others' ? true : false}
+					onChange={(e) => setgender(e.target.value)}
+				/>{' '}
+				Others
+				<button type="submit" className="bg-zinc-200 px-2 py-1 rounded">
 					Submit
 				</button>
 			</form>
@@ -164,107 +200,27 @@ const App = () => {
 
 // CREATE A FORM WHICH TAKES FIRSTNAME, LASTNAME, USERNAME, EMAIL, CONTACT AND ON SUBMITTING THE FOR IT SHOULD CONSOLE THE VALUES IN OBJECT
 // const App = () => {
-// 	const [formData, setFormData] = useState({
-// 		firstName: '',
-// 		lastName: '',
-// 		username: '',
-// 		email: '',
-// 		contact: '',
-// 	});
-
-// 	const handleChange = (e) => {
-// 		const { name, value } = e.target;
-// 		setFormData((prevData) => ({
-// 			...prevData,
-// 			[name]: value,
-// 		}));
-// 	};
-
 // 	const handleSubmit = (e) => {
 // 		e.preventDefault();
-// 		console.log('Form submitted:', formData);
-// 		// The formData object already contains all the form values
+// 		const { username, firstname, lastname, contact, email } = e.target;
+// 		const user = {
+// 			username: username.value,
+// 			firstname: firstname.value,
+// 			lastname: lastname.value,
+// 			contact: contact.value,
+// 			email: email.value,
+// 		};
+// 		console.log(user);
 // 	};
-
 // 	return (
-// 		<div className="w-[40%] mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
-// 			<h2 className="text-2xl font-bold mb-5">
-// 				Fill this form to show in console as Object
-// 			</h2>
-// 			<form onSubmit={handleSubmit}>
-// 				<div className="mb-4">
-// 					<label htmlFor="firstName" className="block mb-2">
-// 						First Name
-// 					</label>
-// 					<input
-// 						type="text"
-// 						id="firstName"
-// 						name="firstName"
-// 						value={formData.firstName}
-// 						onChange={handleChange}
-// 						className="w-full px-3 py-2 border rounded-lg"
-// 						required
-// 					/>
-// 				</div>
-// 				<div className="mb-4">
-// 					<label htmlFor="lastName" className="block mb-2">
-// 						Last Name
-// 					</label>
-// 					<input
-// 						type="text"
-// 						id="lastName"
-// 						name="lastName"
-// 						value={formData.lastName}
-// 						onChange={handleChange}
-// 						className="w-full px-3 py-2 border rounded-lg"
-// 						required
-// 					/>
-// 				</div>
-// 				<div className="mb-4">
-// 					<label htmlFor="username" className="block mb-2">
-// 						Username
-// 					</label>
-// 					<input
-// 						type="text"
-// 						id="username"
-// 						name="username"
-// 						value={formData.username}
-// 						onChange={handleChange}
-// 						className="w-full px-3 py-2 border rounded-lg"
-// 						required
-// 					/>
-// 				</div>
-// 				<div className="mb-4">
-// 					<label htmlFor="email" className="block mb-2">
-// 						Email
-// 					</label>
-// 					<input
-// 						type="email"
-// 						id="email"
-// 						name="email"
-// 						value={formData.email}
-// 						onChange={handleChange}
-// 						className="w-full px-3 py-2 border rounded-lg"
-// 						required
-// 					/>
-// 				</div>
-// 				<div className="mb-4">
-// 					<label htmlFor="contact" className="block mb-2">
-// 						Contact
-// 					</label>
-// 					<input
-// 						type="tel"
-// 						id="contact"
-// 						name="contact"
-// 						value={formData.contact}
-// 						onChange={handleChange}
-// 						className="w-full px-3 py-2 border rounded-lg"
-// 						required
-// 					/>
-// 				</div>
-// 				<button
-// 					type="submit"
-// 					className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
+// 		<div className="w-[40%] mx-auto mt-10 p-6 bg-zinc-300">
+// 			<form onSubmit={handleSubmit} className="flex flex-col gap-4">
+// 				<input type="text" name="firstname" placeholder="First Name" />
+// 				<input type="text" name="lastname" placeholder="Last Name" />
+// 				<input type="text" name="username" placeholder="Username" />
+// 				<input type="text" name="email" placeholder="Email" />
+// 				<input type="text" name="contact" placeholder="Contact" />
+// 				<button className="rounded bg-zinc-200 w-fit px-2 py-1">
 // 					Submit
 // 				</button>
 // 			</form>
