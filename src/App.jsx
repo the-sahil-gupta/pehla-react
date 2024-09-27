@@ -2,61 +2,23 @@ import { useState } from 'react';
 
 const App = () => {
 	const [username, setusername] = useState('');
-	const [gender, setgender] = useState('');
-	const [error, seterror] = useState(false);
-
 	const submitHandler = (e) => {
 		e.preventDefault();
 		console.log(username);
-		console.log(gender);
 	};
 	return (
 		<div className="w-[80%] mt-10 mx-auto bg-zinc-300">
-			<form
-				onSubmit={submitHandler}
-				className="m-3 p-4 flex flex-col content-center gap-4 items-start">
+			<form className="p-4 flex gap-4" onSubmit={submitHandler}>
 				<input
 					onChange={(e) => setusername(e.target.value)}
-					onInput={(e) =>
-						e.target.value.length < 5
-							? seterror(true)
-							: seterror(false)
-					}
 					value={username}
 					type="text"
 					name="username"
 					placeholder="Username"
 				/>
-				{error && (
-					<p className="text-red-500">
-						Username must be 5 characters long
-					</p>
-				)}
-				<input
-					type="radio"
-					name="gender"
-					defaultValue="male"
-					checked={gender === 'male' ? true : false}
-					onChange={(e) => setgender(e.target.value)}
-				/>{' '}
-				Male
-				<input
-					type="radio"
-					name="gender"
-					defaultValue="female"
-					checked={gender === 'female' ? true : false}
-					onChange={(e) => setgender(e.target.value)}
-				/>{' '}
-				Female
-				<input
-					type="radio"
-					name="gender"
-					defaultValue="others"
-					checked={gender === 'others' ? true : false}
-					onChange={(e) => setgender(e.target.value)}
-				/>{' '}
-				Others
-				<button type="submit" className="bg-zinc-200 px-2 py-1 rounded">
+				<button
+					type="submit"
+					className="bg-zinc-100 shadow-md px-2 py-1 rounded">
 					Submit
 				</button>
 			</form>
@@ -221,6 +183,69 @@ const App = () => {
 // 				<input type="text" name="email" placeholder="Email" />
 // 				<input type="text" name="contact" placeholder="Contact" />
 // 				<button className="rounded bg-zinc-200 w-fit px-2 py-1">
+// 					Submit
+// 				</button>
+// 			</form>
+// 		</div>
+// 	);
+// };
+
+// const App = () => {
+// 	const [username, setusername] = useState('');
+// 	const [gender, setgender] = useState('');
+// 	const [error, seterror] = useState(false);
+// 	const submitHandler = (e) => {
+// 		e.preventDefault();
+// 		console.log(username);
+// 		console.log(gender);
+// 	};
+// 	return (
+// 		<div className="w-[80%] mt-10 mx-auto bg-zinc-300">
+// 			<form
+// 				onSubmit={submitHandler}
+// 				className="m-3 p-4 flex flex-col content-center gap-4 items-start">
+// 				<input
+// 					onChange={(e) => setusername(e.target.value)}
+// 					onInput={(e) =>
+// 						e.target.value.length < 5
+// 							? seterror(true)
+// 							: seterror(false)
+// 					}
+// 					value={username}
+// 					type="text"
+// 					name="username"
+// 					placeholder="Username"
+// 				/>
+// 				{error && (
+// 					<p className="text-red-500">
+// 						Username must be 5 characters long
+// 					</p>
+// 				)}
+// 				<input
+// 					type="radio"
+// 					name="gender"
+// 					defaultValue="male"
+// 					checked={gender === 'male' ? true : false}
+// 					onChange={(e) => setgender(e.target.value)}
+// 				/>{' '}
+// 				Male
+// 				<input
+// 					type="radio"
+// 					name="gender"
+// 					defaultValue="female"
+// 					checked={gender === 'female' ? true : false}
+// 					onChange={(e) => setgender(e.target.value)}
+// 				/>{' '}
+// 				Female
+// 				<input
+// 					type="radio"
+// 					name="gender"
+// 					defaultValue="others"
+// 					checked={gender === 'others' ? true : false}
+// 					onChange={(e) => setgender(e.target.value)}
+// 				/>{' '}
+// 				Others
+// 				<button type="submit" className="bg-zinc-200 px-2 py-1 rounded">
 // 					Submit
 // 				</button>
 // 			</form>
