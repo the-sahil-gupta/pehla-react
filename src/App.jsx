@@ -8,6 +8,7 @@ import Nav from './components/Nav';
 // Step 1. Creating Context
 export const DataContext = createContext(null);
 const App = () => {
+	// Step 2. assigning context
 	const [data, setdata] = useState('Data he');
 	return (
 		<>
