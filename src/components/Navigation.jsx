@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { dataContext } from '../utils/Wrapper';
 
-const Footer = () => {
+const Navigation = () => {
 	const [data, setdata] = useContext(dataContext);
-	return <div>Footer: {data}</div>;
+	return <div>Navigation: {data}</div>;
 };
 
-export default Footer;
+export default Navigation;

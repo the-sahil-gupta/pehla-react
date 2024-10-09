@@ -1,23 +1,34 @@
 import { createContext, useState } from 'react';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 // import { useForm } from 'react-hook-form';
 
-import Nav from './components/Nav';
-
-// CONTEXT API
-
-// Step 1. Creating Context
-export const DataContext = createContext(null);
 const App = () => {
-	// Step 2. assigning context
-	const [data, setdata] = useState('Data he');
 	return (
-		<>
-			<DataContext.Provider value={[data, setdata]}>
-				<Nav />
-			</DataContext.Provider>
-		</>
+		<div>
+			<Navigation />
+			<Footer />
+		</div>
 	);
 };
+
+// import Nav from './components/Nav';
+
+// // CONTEXT API
+
+// // Step 1. Creating Context
+// export const DataContext = createContext(null);
+// const App = () => {
+// 	// Step 2. assigning context
+// 	const [data, setdata] = useState('Data he');
+// 	return (
+// 		<>
+// 			<DataContext.Provider value={[data, setdata]}>
+// 				<Nav />
+// 			</DataContext.Provider>
+// 		</>
+// 	);
+// };
 
 // PURA NAHI HUA KARLENA
 // const App = () => {
