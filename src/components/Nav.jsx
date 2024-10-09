@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DataContext } from '../App';
 
 const Nav = () => {
-	return <div>Nav</div>;
+	const [data] = useContext(DataContext);
+	return <div>Nav: {data}</div>;
 };
 
 export default Nav;
